@@ -1,37 +1,173 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Story Map</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="script.js"></script>
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-          #map {
-            height: 100%;
-          }
-  
-          /* Optional: Makes the sample page fill the window. */
-          html,
-          body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-          }
-      </style>
-      
-  </head>
-  <body>
-    <div id="map"></div>
+<head>
+  <title>Sojourner</title>
+  <script src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Sofia+Sans&display=swap" rel="stylesheet">
+  <style> 
 
-    <!-- 
-      The `defer` attribute causes the callback to execute after the full HTML
-      document has been parsed. For non-blocking uses, avoiding race conditions,
-      and consistent behavior across browsers, consider loading using Promises
-      with https://www.npmjs.com/package/@googlemaps/js-api-loader.
-      -->
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+/* Set the font for the entire site */
+body {
+  font-family: "Sofia Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* Set the width and height of the first and second blocks to take up the full screen */
+#block1 {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Set the background image, text alignment, and padding for the first block */
+#block1 {
+  background: url("./hero-bg.jpg") no-repeat center center fixed; /* set the background image */
+  background-size: cover; /* set the background to cover the entire block */
+  text-align: center; /* center align the text */
+  padding: 50px; /* add some padding */
+  color: white; /* set the text color to white */
+  position: relative; /* set the position of the text */
+}
+
+/* Set the font, font size, and text alignment for the first block heading */
+#block1 h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 3em;
+  margin-bottom: 10px;
+  text-align: left;
+  bottom: 50%;
+  right : 50%;
+  left: 10%;
+  position: absolute;   
+}
+/* Set the font size, text alignment, and word wrap for the first block subtitle */
+#block1 h2 {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  color: #f9f9f9;
+  text-align: left;
+  word-wrap: break-word;
+  width: 50%;
+  bottom: 35%;
+  right : 50%;
+  left: 10%;
+  position: absolute;   
+}
+
+/* Set the background color, text alignment, and padding for the second block */
+#block2 {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 50px;
+}
+
+/* Small heading for the second block */
+#block2 h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #848484;
+  text-transform: uppercase;
+}
+/* Large heading for the second block */
+#block2 h2 {
+    font-family: "Poppins", sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+/* Paragraph for the second block */
+#block2 p {
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1.5;
+  color: #848484;
+  max-width: 90%; /* set the maximum width */
+  word-wrap: break-word; /* break long words */
+}
+
+#block3 {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100vw;
+}
+#block3 h1 { 
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#block3 h2 {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #848484;
+  text-transform: uppercase;
+}
+
+/* Maps container */
+#map-container {
+  width: 100%;
+  height: 500px;
+  border: none;
+  padding: 0;
+}
+/* Map width and height to fit the page */
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+footer {
+  background-color: #f5f5f5;
+  text-align: center;
+  padding: 20px;
+}
+
+footer p {
+  font-size: 1.2em;
+  color: #848484;
+}
+  </style>
+</head>
+<body>
+    <!-- Block 1: Hero Section -->
+  <div id="block1">
+        <h1>WELCOME TO SOJOURNER</h1>
+        <h2>The paths which lead me here, and the life and memories left behind.</h2>
+    </div>
+
+    <!-- Block 2: About Me Section -->
+    <div id="block2">
+        <h3>Hi there</h3>
+        <h2>I'm a sojoruner</h2>
+        <p>
+        I set out on a journey alone, leaving behind people and memories in my hometown of Palakkad, India. I traveled by road to Kochi, where I boarded a flight on Oman Airways and ventured through time zones and over the clouds to Muscat Airport. From there, I caught another flight on Lufthansa from Muscat to Frankfurt Airport in Germany and finally, an Air Canada flight from Frankfurt to Toronto Pearson International Airport in Canada. 
+        A long and tiring, but exciting journey filled with new experiences and memories. The journey was not just about the physical distance but also about leaving behind the past and embracing new experiences and opportunities.
+        </p>
+    </div>
+
+    <!-- Block 3: Map Section -->
+    <div id="block3">
+        <h1>AN ODYSSEY:</h1>
+        <h2>Charting My Epic Journey from India to Canada</h2>
+    </div>
+    <div id="map-container">
+        <div id="map"></div>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
       defer
     ></script>
-  </body>
+    </div>
+<footer>
+  <p>Copyright ©2023 A-Charvin</p>
+</footer>
+</body>
 </html>
